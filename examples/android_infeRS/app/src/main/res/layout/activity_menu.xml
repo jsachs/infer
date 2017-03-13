@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#08233e"
+    android:orientation="vertical"
+    tools:context="edu.columbia.cs.infers.MenuActivity"
+    android:weightSum="17">
+
+    <ImageButton
+        android:id="@+id/aboutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:scaleType="fitEnd"
+        app:srcCompat="@drawable/button_upper_right" />
+
+    <ImageButton
+        android:id="@+id/optionButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:layout_gravity="center"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/option_1"
+        android:layout_weight="4" />
+
+    <ImageButton
+        android:id="@+id/optionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:layout_gravity="center"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/option_2"
+        android:layout_weight="4" />
+
+    <ImageButton
+        android:id="@+id/optionButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:layout_gravity="center"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/option_3"
+        android:layout_weight="4" />
+
+    <ImageButton
+        android:id="@+id/optionButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        android:layout_gravity="center"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="25dp"
+        app:srcCompat="@drawable/option_4"
+        android:layout_weight="4" />
+
+</LinearLayout>
