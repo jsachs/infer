@@ -39,6 +39,14 @@
             android:theme="@style/FullscreenTheme">
         </activity>
 
+        <!-- Option 1 Activity -->
+        <activity
+            android:name=".Option1Activity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/FullscreenTheme">
+        </activity>
+
     </application>
 
 </manifest>
