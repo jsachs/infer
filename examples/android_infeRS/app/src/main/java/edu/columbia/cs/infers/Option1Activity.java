@@ -2,6 +2,7 @@ package edu.columbia.cs.infers;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 
 public class Option1Activity extends Activity {
@@ -17,5 +18,12 @@ public class Option1Activity extends Activity {
 
         setContentView(R.layout.activity_option_1);
 
+        // Set back button action
+        this.findViewById(R.id.backOption1Button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Option1Activity.this.finish();
+            }
+        });
     }
 }

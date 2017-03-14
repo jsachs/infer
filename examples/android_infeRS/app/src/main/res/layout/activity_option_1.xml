@@ -8,18 +8,36 @@
     tools:context="edu.columbia.cs.infers.Option1Activity"
     android:weightSum="1">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:scaleType="centerInside"
-        android:src="@drawable/running_title" />
+        android:layout_weight="0.95"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1">
 
-    <ProgressBar
-        android:indeterminateDrawable="@drawable/progressbar_indeterminate"
-        android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/running_title" />
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/progressbar_indeterminate"
+            android:layout_weight="0.15"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/backOption1Button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.15" />
+        android:layout_gravity="left|bottom"
+        android:background="@android:color/transparent"
+        android:scaleType="fitEnd"
+        android:src="@drawable/button_buttom_left"
+        android:layout_weight="0.05"/>
 
 </LinearLayout>
