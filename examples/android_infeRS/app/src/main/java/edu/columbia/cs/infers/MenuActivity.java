@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     void setButtonsActions(){
-        this.findViewById(R.id.aboutButton).setOnClickListener(openNewActivityClickListener(MenuActivity.class));
+        this.findViewById(R.id.aboutButton).setOnClickListener(openNewActivityClickListener(AboutActivity.class));
         this.findViewById(R.id.optionButton1).setOnClickListener(openNewActivityClickListener(MenuActivity.class));
         this.findViewById(R.id.optionButton2).setOnClickListener(openNewActivityClickListener(MenuActivity.class));
         this.findViewById(R.id.optionButton3).setOnClickListener(openNewActivityClickListener(MenuActivity.class));
