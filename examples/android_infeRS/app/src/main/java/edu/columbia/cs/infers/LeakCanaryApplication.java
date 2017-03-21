@@ -6,11 +6,7 @@ import android.content.Context;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
-/**
- * Created by Alon on 21/03/2017.
- */
-
-public class LeakCaneryApplication extends Application {
+public class LeakCanaryApplication extends Application {
 
     private RefWatcher refWatcher;
 
@@ -26,7 +22,7 @@ public class LeakCaneryApplication extends Application {
     }
 
     public static RefWatcher getRefWatcher(Context context) {
-        LeakCaneryApplication application = (LeakCaneryApplication) context.getApplicationContext();
+        LeakCanaryApplication application = (LeakCanaryApplication) context.getApplicationContext();
         return application.refWatcher;
     }
 }
