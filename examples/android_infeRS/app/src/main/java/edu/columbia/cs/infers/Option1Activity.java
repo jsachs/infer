@@ -2,6 +2,7 @@ package edu.columbia.cs.infers;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -12,9 +13,9 @@ public class Option1Activity extends Activity {
         super.onCreate(icicle);
 
         // Remove title bar
-        this.requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        //this.requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         // Remove notification bar
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_option_1);
 
@@ -25,5 +26,19 @@ public class Option1Activity extends Activity {
                 Option1Activity.this.finish();
             }
         });
+
+        // Leak memory
+        leakMemory();
+    }
+
+    private void leakMemory(){
+        new Thread() {
+            @Override
+            public void run(){
+                while (true){
+                    SystemClock.sleep(1000);
+                }
+            }
+        }.start();
     }
 }
