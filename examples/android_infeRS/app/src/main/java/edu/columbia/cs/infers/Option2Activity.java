@@ -6,7 +6,11 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageView;
 
+/* Static View */
 public class Option2Activity extends Activity {
+
+    // Static View Variable
+    static View view;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -36,13 +40,6 @@ public class Option2Activity extends Activity {
     }
 
     private void leakMemory(){
-        new Thread() {
-            @Override
-            public void run(){
-                while (true){
-                    SystemClock.sleep(1000);
-                }
-            }
-        }.start();
+        view = this.findViewById(R.id.backOption1Button);
     }
 }

@@ -1,11 +1,13 @@
 package edu.columbia.cs.infers;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageView;
 
+/* Anonymous Classes */
 public class Option4Activity extends Activity {
 
     @Override
@@ -36,13 +38,10 @@ public class Option4Activity extends Activity {
     }
 
     private void leakMemory(){
-        new Thread() {
-            @Override
-            public void run(){
-                while (true){
-                    SystemClock.sleep(1000);
-                }
+        new AsyncTask<Void, Void, Void>() {
+            @Override protected Void doInBackground(Void... params) {
+                while(true);
             }
-        }.start();
+        }.execute();
     }
 }

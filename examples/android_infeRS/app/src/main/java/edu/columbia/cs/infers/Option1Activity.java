@@ -6,7 +6,11 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageView;
 
+/* Static Activities */
 public class Option1Activity extends Activity {
+
+    // Static Activity Variable
+    static Activity activity;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -36,13 +40,6 @@ public class Option1Activity extends Activity {
     }
 
     private void leakMemory(){
-        new Thread() {
-            @Override
-            public void run(){
-                while (true){
-                    SystemClock.sleep(1000);
-                }
-            }
-        }.start();
+        activity = this;
     }
 }

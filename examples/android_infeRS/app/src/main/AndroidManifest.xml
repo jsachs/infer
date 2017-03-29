@@ -66,6 +66,12 @@
             android:theme="@style/FullscreenTheme">
         </activity>
 
+        <!-- Option 5 Activity -->
+        <activity
+            android:name=".Option5Activity"
+            android:theme="@style/FullscreenTheme">
+        </activity>
+
     </application>
 
 </manifest>
