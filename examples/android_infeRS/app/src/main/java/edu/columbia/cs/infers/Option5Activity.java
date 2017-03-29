@@ -2,16 +2,12 @@ package edu.columbia.cs.infers;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageView;
 
-/* Inner Classes */
-public class Option3Activity extends Activity {
-
-    // Inner Class Definition
-    class InnerClass {}
-    // Static Reference
-    static InnerClass innerClass;
+/* Threads (Anonymous Classes Variation)*/
+public class Option5Activity extends Activity {
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -26,13 +22,13 @@ public class Option3Activity extends Activity {
 
         // Set title image
         ImageView imageView = (ImageView) this.findViewById(R.id.running_title);
-        imageView.setImageResource(R.drawable.running_title_3);
+        imageView.setImageResource(R.drawable.running_title_0);
 
         // Set back button action
         this.findViewById(R.id.backOption1Button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Option3Activity.this.finish();
+                Option5Activity.this.finish();
             }
         });
 
@@ -41,6 +37,13 @@ public class Option3Activity extends Activity {
     }
 
     private void leakMemory(){
-        innerClass = new InnerClass();
+        new Thread() {
+            @Override
+            public void run(){
+                while (true){
+                    SystemClock.sleep(1000);
+                }
+            }
+        }.start();
     }
 }
