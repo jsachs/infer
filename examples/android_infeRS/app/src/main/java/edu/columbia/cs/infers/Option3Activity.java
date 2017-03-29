@@ -6,7 +6,7 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageView;
 
-public class Option1Activity extends Activity {
+public class Option3Activity extends Activity {
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -21,13 +21,13 @@ public class Option1Activity extends Activity {
 
         // Set title image
         ImageView imageView = (ImageView) this.findViewById(R.id.running_title);
-        imageView.setImageResource(R.drawable.running_title_1);
+        imageView.setImageResource(R.drawable.running_title_3);
 
         // Set back button action
         this.findViewById(R.id.backOption1Button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Option1Activity.this.finish();
+                Option3Activity.this.finish();
             }
         });
 

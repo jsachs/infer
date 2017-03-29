@@ -48,6 +48,24 @@
             android:theme="@style/FullscreenTheme">
         </activity>
 
+        <!-- Option 2 Activity -->
+        <activity
+            android:name=".Option2Activity"
+            android:theme="@style/FullscreenTheme">
+        </activity>
+
+        <!-- Option 3 Activity -->
+        <activity
+            android:name=".Option3Activity"
+            android:theme="@style/FullscreenTheme">
+        </activity>
+
+        <!-- Option 4 Activity -->
+        <activity
+            android:name=".Option4Activity"
+            android:theme="@style/FullscreenTheme">
+        </activity>
+
     </application>
 
 </manifest>
