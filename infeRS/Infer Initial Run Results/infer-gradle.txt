@@ -1,0 +1,24 @@
+Found 2 issues
+
+app/src/main/java/edu/columbia/cs/infers/Option1Activity.java:40: error: CONTEXT_LEAK
+  Context class edu.columbia.cs.infers.Option1Activity may leak during method edu.columbia.cs.infers.Option1Activity.onCreate:
+  Static field edu.columbia.cs.infers.Option1Activity.activity |->
+  Leaked class edu.columbia.cs.infers.Option1Activity
+  38.           // Leak memory
+  39.           leakMemory();
+  40. >     }
+  41.   
+  42.       private void leakMemory(){
+
+app/src/main/java/edu/columbia/cs/infers/Option3Activity.java:41: error: CONTEXT_LEAK
+  Context class edu.columbia.cs.infers.Option3Activity may leak during method edu.columbia.cs.infers.Option3Activity.onCreate:
+  Static field edu.columbia.cs.infers.Option3Activity.innerClass |->
+  edu.columbia.cs.infers.Option3Activity$InnerClass.this$0 |->
+  Leaked class edu.columbia.cs.infers.Option3Activity
+  39.           // Leak memory
+  40.           leakMemory();
+  41. >     }
+  42.   
+  43.       private void leakMemory(){
+
+Summary of the reports
