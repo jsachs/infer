@@ -17,11 +17,12 @@
         android:weightSum="1">
 
         <ImageView
+            android:id="@+id/running_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:layout_marginTop="15dp"
-            android:src="@drawable/running_title" />
+            android:src="@drawable/running_title_0" />
 
         <ProgressBar
             android:layout_width="match_parent"
