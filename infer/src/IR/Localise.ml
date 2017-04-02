@@ -511,6 +511,32 @@ let desc_double_lock pname_opt object_str loc =
   let descriptions = [mutex_str; msg; at_line tags loc] in
   { no_desc with descriptions; tags = !tags }
 
+let desc_view_leak pname context_typ fieldname leak_path : error_desc =
+  let fld_str = Ident.fieldname_to_string fieldname in
+  let leak_root = " Static field " ^ fld_str ^ " |->\n " in
+  let leak_path_entry_to_str acc entry =
+    let entry_str = match entry with
+      | (Some fld, _) -> Ident.fieldname_to_string fld
+      | (None, typ) -> Typ.to_string typ in
+    (* intentionally omit space; [typ_to_string] adds an extra space *)
+    acc ^ entry_str ^ " |->\n " in
+  let view_str = Typ.to_string view_typ in
+  let path_str =
+    let path_prefix =
+      if List.is_empty leak_path then "Leaked "
+      else (List.fold ~f:leak_path_entry_to_str ~init:"" leak_path) ^ " Leaked " in
+    path_prefix ^ view_str in
+  let preamble =
+    let pname_str = match pname with
+      | Procname.Java pname_java ->
+          Printf.sprintf "%s.%s"
+            (Procname.java_get_class_name pname_java)
+            (Procname.java_get_method pname_java)
+      | _ ->
+          "" in
+    "View " ^ view_str ^ " may leak during method " ^ pname_str ^ ":\n" in
+  { no_desc with descriptions = [preamble; leak_root; path_str] }
+
 let desc_unsafe_guarded_by_access pname accessed_fld guarded_by_str loc =
   let line_info = at_line (Tags.create ()) loc in
   let accessed_fld_str = Fieldname.to_string accessed_fld in

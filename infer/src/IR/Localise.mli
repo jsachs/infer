@@ -260,6 +260,10 @@ val desc_context_leak :
   Typ.Procname.t -> Typ.t -> Fieldname.t ->
   (Fieldname.t option * Typ.t) list -> error_desc
 
+val desc_view_leak :
+  Procname.t -> Typ.t -> Ident.fieldname ->
+  (Ident.fieldname option * Typ.t) list -> error_desc
+
 val desc_fragment_retains_view :
   Typ.t -> Fieldname.t -> Typ.t -> Typ.Procname.t -> error_desc
 

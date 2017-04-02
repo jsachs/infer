@@ -45,6 +45,10 @@ val exp_rv_dexp : Tenv.t -> Procdesc.Node.t -> Exp.t -> DecompiledExp.t option
 val explain_context_leak : Typ.Procname.t -> Typ.t -> Fieldname.t ->
   (Fieldname.t option * Typ.t) list -> Localise.error_desc
 
+(** Produce a description of a persistent reference to an Android View *)
+val explain_view_leak : Procname.t -> Typ.t -> Ident.fieldname ->
+  (Ident.fieldname option * Typ.t) list -> Localise.error_desc
+
 (** Produce a description of a mismatch between an allocation function and a deallocation function *)
 val explain_allocation_mismatch :
   PredSymb.res_action -> PredSymb.res_action -> Localise.error_desc
