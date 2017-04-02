@@ -691,6 +691,49 @@ let report_context_leaks pname sigma tenv =
         | _ -> ())
     sigma
 
+(** report an error if any View is assigned to a static field *)
+let report_view_leaks pname sigma tenv =
+  (* report an error if an expression in [context_exps] is reachable from [field_strexp] *)
+  let check_reachable_view_from_fld (fld_name, fld_strexp) view_exps =
+    let fld_exps = Prop.strexp_get_exps fld_strexp in
+    let reachable_hpreds, reachable_exps =
+      Prop.compute_reachable_hpreds sigma fld_exps in
+    (* raise an error if any View expression is in [reachable_exps] *)
+    List.iter
+      ~f:(fun (view_exp, name) ->
+          if Exp.Set.mem view_exp reachable_exps then
+            let leak_path =
+              match get_fld_typ_path_opt fld_exps view_exp reachable_hpreds with
+              | Some path -> path
+              | None -> assert false (* a path must exist in order for a leak to be reported *) in
+            let err_desc =
+              Errdesc.explain_view_leak pname (Typ.Tstruct name) fld_name leak_path in
+            let exn = Exceptions.Context_leak (err_desc, __POS__) in
+            Reporting.log_error pname exn)
+      view_exps in
+  (* get the set of pointed-to expressions of type T <: View *)
+  let view_exps =
+    List.fold
+      ~f:(fun exps hpred -> match hpred with
+          | Sil.Hpointsto (_, Eexp (exp, _), Sizeof (Tptr (Tstruct name, _), _, _))
+            when not (Exp.is_null_literal exp)
+              && AndroidFramework.is_view tenv name
+              && not (AndroidFramework.is_application tenv name) ->
+              (exp, name) :: exps
+          | _ -> exps)
+      ~init:[]
+      sigma in
+  List.iter
+    ~f:(function
+        | Sil.Hpointsto (Exp.Lvar pv, Sil.Estruct (static_flds, _), _)
+          when Pvar.is_global pv ->
+            List.iter
+              ~f:(fun (f_name, f_strexp) ->
+                  check_reachable_view_from_fld (f_name, f_strexp) view_exps)
+              static_flds
+        | _ -> ())
+    sigma
+
 (** Remove locals and formals,
     and check if the address of a stack variable is left in the result *)
 let remove_locals_formals_and_check tenv pdesc p =

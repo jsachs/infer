@@ -99,6 +99,7 @@ exception Uninitialized_value of Localise.error_desc * L.ml_loc
 exception Unknown_proc
 exception Unsafe_guarded_by_access of Localise.error_desc * L.ml_loc
 exception Use_after_free of Localise.error_desc * L.ml_loc
+exception View_leak of Localise.error_desc * L.ml_loc
 exception Wrong_argument_number of L.ml_loc
 
 
@@ -111,6 +112,9 @@ let recognize_exception exn =
          Localise.no_desc, Some ml_loc, Exn_developer, Low, None, Nocat)
     | Context_leak (desc, _) ->
         (Localise.context_leak,
+         desc, None, Exn_user, High, None, Nocat)
+    | View_leak (desc, _) ->
+        (Localise.view_leak,
          desc, None, Exn_user, High, None, Nocat)
     | Analysis_stops (desc, ml_loc_opt) ->
         let visibility = if Config.analysis_stops then Exn_user else Exn_developer in

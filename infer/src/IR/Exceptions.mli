@@ -94,6 +94,7 @@ exception Uninitialized_value of Localise.error_desc * Logging.ml_loc
 exception Unknown_proc
 exception Unsafe_guarded_by_access of Localise.error_desc * Logging.ml_loc
 exception Use_after_free of Localise.error_desc * Logging.ml_loc
+exception View_leak of Localise.error_desc * Logging.ml_loc
 exception Wrong_argument_number of Logging.ml_loc
 
 (** string describing an error class *)
