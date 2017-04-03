@@ -693,7 +693,7 @@ let report_context_leaks pname sigma tenv =
 
 (** report an error if any View is assigned to a static field *)
 let report_view_leaks pname sigma tenv =
-  (* report an error if an expression in [context_exps] is reachable from [field_strexp] *)
+  (* report an error if an expression in [view_exps] is reachable from [field_strexp] *)
   let check_reachable_view_from_fld (fld_name, fld_strexp) view_exps =
     let fld_exps = Prop.strexp_get_exps fld_strexp in
     let reachable_hpreds, reachable_exps =
@@ -708,7 +708,7 @@ let report_view_leaks pname sigma tenv =
               | None -> assert false (* a path must exist in order for a leak to be reported *) in
             let err_desc =
               Errdesc.explain_view_leak pname (Typ.Tstruct name) fld_name leak_path in
-            let exn = Exceptions.Context_leak (err_desc, __POS__) in
+            let exn = Exceptions.View_leak (err_desc, __POS__) in
             Reporting.log_error pname exn)
       view_exps in
   (* get the set of pointed-to expressions of type T <: View *)
@@ -805,6 +805,7 @@ let extract_specs tenv pdesc pathset : Prop.normal Specs.spec list =
       if Config.curr_language_is Config.Java &&
          Procdesc.get_access pdesc <> PredSymb.Private then
         report_context_leaks pname post.Prop.sigma tenv;
+        report_view_leaks pname post.Prop.sigma tenv;
       let post' =
         if Prover.check_inconsistency_base tenv prop then None
         else Some (Prop.normalize tenv (Prop.prop_sub sub post), path) in
