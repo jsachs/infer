@@ -72,6 +72,7 @@ let unary_minus_applied_to_unsigned_expression = "UNARY_MINUS_APPLIED_TO_UNSIGNE
 let unsafe_guarded_by_access = "UNSAFE_GUARDED_BY_ACCESS"
 let uninitialized_value = "UNINITIALIZED_VALUE"
 let use_after_free = "USE_AFTER_FREE"
+let view_leak = "VIEW_LEAK"
 
 type error_desc = {
   descriptions : string list;
@@ -438,7 +439,7 @@ let desc_context_leak pname context_typ fieldname leak_path : error_desc =
     "Context " ^ context_str ^ " may leak during method " ^ pname_str ^ ":\n" in
   { no_desc with descriptions = [preamble; leak_root; path_str] }
 
-let desc_view_leak pname context_typ fieldname leak_path : error_desc =
+let desc_view_leak pname view_typ fieldname leak_path : error_desc =
   let fld_str = Ident.fieldname_to_string fieldname in
   let leak_root = " Static field " ^ fld_str ^ " |->\n " in
   let leak_path_entry_to_str acc entry =
