@@ -35,6 +35,7 @@ let to_issue_id (s, _) = s
 let to_human_readable_string (_, s) = s
 
 (** pretty print a localised string *)
+
 let pp fmt t = Format.fprintf fmt "%s" (to_issue_id t)
 
 let analysis_stops = from_string "ANALYSIS_STOPS"
@@ -130,7 +131,7 @@ let unary_minus_applied_to_unsigned_expression =
 let uninitialized_value = from_string "UNINITIALIZED_VALUE"
 let unsafe_guarded_by_access = from_string "UNSAFE_GUARDED_BY_ACCESS"
 let use_after_free = from_string "USE_AFTER_FREE"
-
+let view_leak = "VIEW_LEAK"
 
 type error_desc = {
   descriptions : string list;
@@ -511,7 +512,7 @@ let desc_double_lock pname_opt object_str loc =
   let descriptions = [mutex_str; msg; at_line tags loc] in
   { no_desc with descriptions; tags = !tags }
 
-let desc_view_leak pname context_typ fieldname leak_path : error_desc =
+let desc_view_leak pname view_typ fieldname leak_path : error_desc =
   let fld_str = Ident.fieldname_to_string fieldname in
   let leak_root = " Static field " ^ fld_str ^ " |->\n " in
   let leak_path_entry_to_str acc entry =

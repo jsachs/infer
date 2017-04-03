@@ -101,6 +101,11 @@ val unary_minus_applied_to_unsigned_expression : t
 val uninitialized_value : t
 val unsafe_guarded_by_access : t
 val use_after_free : t
+val view_leak : t
+val skip_function : t
+val skip_pointer_dereference : t
+val tainted_value_reaching_sensitive_function : t
+val thread_safety_violation : t
 
 (** description field of error messages *)
 type error_desc = {
