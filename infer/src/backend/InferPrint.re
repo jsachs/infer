@@ -346,6 +346,7 @@ let should_report (issue_kind: Exceptions.err_kind) issue_type error_desc eclass
                 static_initialization_order_fiasco,
                 tainted_value_reaching_sensitive_function,
                 thread_safety_violation,
+		view_leak,
                 unsafe_guarded_by_access
               ];
             List.mem equal::Localise.equal reportable_issue_types issue_type
