@@ -804,8 +804,10 @@ let extract_specs tenv pdesc pathset : Prop.normal Specs.spec list =
       let pre' = Prop.normalize tenv (Prop.prop_sub sub pre) in
       if Config.curr_language_is Config.Java &&
          Procdesc.get_access pdesc <> PredSymb.Private then
-        report_context_leaks pname post.Prop.sigma tenv;
-        report_view_leaks pname post.Prop.sigma tenv;
+         begin
+             report_context_leaks pname post.Prop.sigma tenv;
+             report_view_leaks pname post.Prop.sigma tenv
+         end;
       let post' =
         if Prover.check_inconsistency_base tenv prop then None
         else Some (Prop.normalize tenv (Prop.prop_sub sub post), path) in
