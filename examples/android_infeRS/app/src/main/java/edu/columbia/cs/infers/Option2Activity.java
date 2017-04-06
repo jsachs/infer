@@ -40,6 +40,6 @@ public class Option2Activity extends Activity {
     }
 
     private void leakMemory(){
-        view = this.findViewById(R.id.backOption1Button);
+        view = new ImageView(this);
     }
 }
