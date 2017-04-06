@@ -29,6 +29,7 @@ let active_procedure_checkers () =
         CheckTraceCallSequence.callback_check_trace_call_sequence, false;
         Dataflow.callback_test_dataflow, false;
         FragmentRetainsViewChecker.callback_fragment_retains_view, Config.checkers_enabled;
+        ActivityRetainsStaticViewChecker.callback_activity_retains_static_view, Config.checkers_enabled;
         SqlChecker.callback_sql, false;
         Eradicate.callback_eradicate, Config.eradicate;
         BoundedCallTree.checker, Config.crashcontext;

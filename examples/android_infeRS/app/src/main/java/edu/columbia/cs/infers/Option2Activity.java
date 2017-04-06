@@ -11,6 +11,7 @@ public class Option2Activity extends Activity {
 
     // Static View Variable
     static View view;
+    View nonStaticView;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -40,6 +41,9 @@ public class Option2Activity extends Activity {
     }
 
     private void leakMemory(){
+        //view = this.findViewById(R.id.backOption1Button);
         view = new ImageView(this);
+	nonStaticView = new ImageView(this);
     }
+
 }
