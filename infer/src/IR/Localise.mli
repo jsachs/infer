@@ -233,6 +233,9 @@ val desc_view_leak :
 val desc_fragment_retains_view :
   Typ.t -> Ident.fieldname -> Typ.t -> Procname.t -> error_desc
 
+val desc_activity_retains_static_view :
+  Typ.t -> Ident.fieldname -> Typ.t -> Procname.t -> error_desc
+
 (* Create human-readable error description for assertion failures *)
 val desc_custom_error : Location.t -> error_desc
 
