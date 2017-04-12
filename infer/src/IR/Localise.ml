@@ -571,6 +571,19 @@ let desc_fragment_retains_view fragment_typ fieldname fld_typ pname : error_desc
     "In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView." in
   { no_desc with descriptions = [problem; consequences; advice] }
 
+let desc_activity_retains_static_view activity_typ fieldname fld_typ pname : error_desc =
+  let problem =
+    Printf.sprintf "Activity %s does not nullify static View field %s (type %s) in %s."
+      (format_typ activity_typ)
+      (format_field fieldname)
+      (format_typ fld_typ)
+      (format_method pname) in
+  let consequences =
+    "If this Activity is placed on the back stack, a reference to this static View will be retained." in
+  let advice =
+    "In general, it is a good idea to initialize View's in onCreate, then nullify them in onDestroy." in
+  { no_desc with descriptions = [problem; consequences; advice] }
+
 let desc_custom_error loc : error_desc =
   { no_desc with descriptions = ["detected"; at_line (Tags.create ()) loc] }
 
