@@ -504,9 +504,9 @@ let desc_activity_retains_static_view activity_typ fieldname fld_typ pname : err
       (format_typ fld_typ)
       (format_method pname) in
   let consequences =
-    "If this Activity is placed on the back stack, a reference to this static View will be retained." in
+    "If this Activity is destroyed, a reference to it will leak through the static View that retains." in
   let advice =
-    "In general, it is a good idea to initialize View's in onCreate, then nullify them in onDestroy." in
+    "In general, it is a good idea to initialize Views in onCreate, then nullify them in onDestroy." in
   { no_desc with descriptions = [problem; consequences; advice] }
 
 let desc_custom_error loc : error_desc =
