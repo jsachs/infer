@@ -10,7 +10,7 @@
 open! IStd
 
 (** Make sure callbacks are always unregistered. drive the point home by reporting possible NPE's *)
-(* TODO: complain if onDestroyView is not defined, yet the Fragment has View fields *)
+(* TODO: complain if onDestroy is not defined, yet the activity has View fields *)
 
 module P = Printf
 
@@ -41,8 +41,12 @@ let callback_activity_retains_static_view_java
     let fld_classname = Typename.Java.from_string (Ident.java_fieldname_get_class fldname) in
     Typename.equal fld_classname class_typename && fld_typ_is_view fld_typ in
 
-  if true then (* original was [if is_on_destroy then], checks for a specific analyzed function*)
+  if is_on_destroy then (* checks for a specific analyzed function is onDestroy *)
     begin
+
+      (* DEBUG print method name *)
+      let mystring = (Procname.java_get_method pname_java) in
+      Printf.printf "\n0 %s \n" mystring;
 
       (* DEBUG print class name *)
       let mystring = (Procname.java_get_class_name pname_java) in

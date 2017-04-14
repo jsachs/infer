@@ -46,4 +46,8 @@ public class Option2Activity extends Activity {
 	nonStaticView = new ImageView(this);
     }
 
+   @Override
+   public void onDestroy(){
+
+   }
 }
