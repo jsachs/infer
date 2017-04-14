@@ -58,7 +58,7 @@ let callback_activity_retains_static_view_java
 
       (* get all the fields in the class if it is an activity*)
       match Tenv.lookup tenv class_typename with
-      | Some { fields } when AndroidFramework.is_activity tenv class_typename -> (*run the following if fields are found in an activity *)
+      | Some { statics } when AndroidFramework.is_activity tenv class_typename -> (*run the following if fields are found in an activity *)
 
 	begin
 
@@ -68,7 +68,7 @@ let callback_activity_retains_static_view_java
 
           (* filter the declared views from all the fields *)
           let declared_view_fields =
-            List.filter ~f:(is_declared_view_typ class_typename) fields in
+            List.filter ~f:(is_declared_view_typ class_typename) statics in
 
           (* get all the nullified fields *)
           let fields_nullified = PatternMatch.get_fields_nullified proc_desc in
@@ -79,8 +79,8 @@ let callback_activity_retains_static_view_java
           (* DEBUG print class name, number of views, and number of fields *)
           let mystring = (Procname.java_get_class_name pname_java) in
           let myint1 = (List.length declared_view_fields) in
-          let myint2 = (List.length fields) in
-          Printf.printf "    c %s # of declared view fields is %d out of %d of fields\n" mystring myint1 myint2;
+          let myint2 = (List.length statics) in
+          Printf.printf "    c %s # of declared view statics is %d out of %d of statics\n" mystring myint1 myint2;
 
           (* iterate over all declared views *)
           List.iter
@@ -109,7 +109,7 @@ let callback_activity_retains_static_view_java
 
           end
         end
-      | _ -> () (* do nothing if no fileds in activity found *)
+      | _ -> () (* do nothing if no fields in activity found *)
     end
 
 (* main *)
