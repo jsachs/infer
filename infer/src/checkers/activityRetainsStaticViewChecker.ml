@@ -26,10 +26,10 @@ let report_error activity_typ fld fld_typ pname pdesc =
 
 (* checker definition *)
 let callback_activity_retains_static_view_java
-    pname_java { Callbacks.proc_desc; tenv } =
+    pname_java { Callbacks.proc_desc; summary; tenv } =
 
   (* checker macro: check if the name of the analyzed function is "onDestroy" *)
-  let is_on_destroy = String.equal (Procname.java_get_method pname_java) "onDestroy" in
+  let is_on_destroy = String.equal (Typ.Procname.java_get_method pname_java) "onDestroy" in
 
   (* checker macro: checks if the field [tname] is a view *)
   let fld_typ_is_view = function
@@ -38,23 +38,23 @@ let callback_activity_retains_static_view_java
 
   (* is [fldname] a View type declared by [class_typename]? *)
   let is_declared_view_typ class_typename (fldname, fld_typ, _) =
-    let fld_classname = Typename.Java.from_string (Ident.java_fieldname_get_class fldname) in
-    Typename.equal fld_classname class_typename && fld_typ_is_view fld_typ in
+    let fld_classname = Typ.Name.Java.from_string (Fieldname.java_get_class fldname) in
+    Typ.Name.equal fld_classname class_typename && fld_typ_is_view fld_typ in
 
   if is_on_destroy then (* checks for a specific analyzed function is onDestroy *)
     begin
 
       (* DEBUG print method name *)
-      let mystring = (Procname.java_get_method pname_java) in
+      let mystring = (Typ.Procname.java_get_method pname_java) in
       Printf.printf "\n0 %s \n" mystring;
 
       (* DEBUG print class name *)
-      let mystring = (Procname.java_get_class_name pname_java) in
+      let mystring = (Typ.Procname.java_get_class_name pname_java) in
       Printf.printf "a %s \n" mystring;
 
       (* Define class name variable*)
       let class_typename =
-        Typename.Java.from_string (Procname.java_get_class_name pname_java) in
+        Typ.Name.Java.from_string (Typ.Procname.java_get_class_name pname_java) in
 
       (* get all the fields in the class if it is an activity*)
       match Tenv.lookup tenv class_typename with
@@ -63,7 +63,7 @@ let callback_activity_retains_static_view_java
 	begin
 
           (* DEBUG print class name *)
-          let mystring = (Procname.java_get_class_name pname_java) in
+          let mystring = (Typ.Procname.java_get_class_name pname_java) in
           Printf.printf "  b %s \n" mystring;
 
           (* filter the declared views from all the fields *)
@@ -77,7 +77,7 @@ let callback_activity_retains_static_view_java
           begin
 
           (* DEBUG print class name, number of views, and number of fields *)
-          let mystring = (Procname.java_get_class_name pname_java) in
+          let mystring = (Typ.Procname.java_get_class_name pname_java) in
           let myint1 = (List.length declared_view_fields) in
           let myint2 = (List.length statics) in
           Printf.printf "    c %s # of declared view statics is %d out of %d of statics\n" mystring myint1 myint2;
@@ -91,15 +91,15 @@ let callback_activity_retains_static_view_java
                Printf.printf "    d\n";
 
                (* check if the declared field in not nullified *)
-               if not (Ident.FieldSet.mem fname fields_nullified) then
+               if not (Fieldname.Set.mem fname fields_nullified) then
                  begin
 
                    (* DEBUG print class name *)
-                   let mystring = (Procname.java_get_class_name pname_java) in
+                   let mystring = (Typ.Procname.java_get_class_name pname_java) in
                    Printf.printf "      e %s \n" mystring;
 
                    (* report an error! found a declared view field which is not nullified *)
-                   report_error (Tstruct class_typename) fname fld_typ (Procname.Java pname_java) proc_desc
+                   report_error (Tstruct class_typename) fname fld_typ (Typ.Procname.Java pname_java) proc_desc
 
                  end
 
@@ -113,8 +113,13 @@ let callback_activity_retains_static_view_java
     end
 
 (* main *)
-let callback_activity_retains_static_view ({ Callbacks.proc_name } as args) =
-  match proc_name with
-  | Procname.Java pname_java -> (* if the analyzer function is a java function *)
-      callback_activity_retains_static_view_java pname_java args
-  | _ -> () (* do nothing if this is not a java function *)
+let callback_activity_retains_static_view ({ Callbacks.summary } as args) : Specs.summary =
+  let proc_name = Specs.get_proc_name summary in
+  begin
+    match proc_name  with
+    | Typ.Procname.Java pname_java ->
+        callback_activity_retains_static_view_java pname_java args
+    | _ ->
+        ()
+  end;
+  summary

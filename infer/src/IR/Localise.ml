@@ -131,7 +131,7 @@ let unary_minus_applied_to_unsigned_expression =
 let uninitialized_value = from_string "UNINITIALIZED_VALUE"
 let unsafe_guarded_by_access = from_string "UNSAFE_GUARDED_BY_ACCESS"
 let use_after_free = from_string "USE_AFTER_FREE"
-let view_leak = "VIEW_LEAK"
+let view_leak = from_string "VIEW_LEAK"
 
 type error_desc = {
   descriptions : string list;
@@ -513,11 +513,11 @@ let desc_double_lock pname_opt object_str loc =
   { no_desc with descriptions; tags = !tags }
 
 let desc_view_leak pname view_typ fieldname leak_path : error_desc =
-  let fld_str = Ident.fieldname_to_string fieldname in
+  let fld_str = Fieldname.to_string fieldname in
   let leak_root = " Static field " ^ fld_str ^ " |->\n " in
   let leak_path_entry_to_str acc entry =
     let entry_str = match entry with
-      | (Some fld, _) -> Ident.fieldname_to_string fld
+      | (Some fld, _) -> Fieldname.to_string fld
       | (None, typ) -> Typ.to_string typ in
     (* intentionally omit space; [typ_to_string] adds an extra space *)
     acc ^ entry_str ^ " |->\n " in
@@ -529,14 +529,15 @@ let desc_view_leak pname view_typ fieldname leak_path : error_desc =
     path_prefix ^ view_str in
   let preamble =
     let pname_str = match pname with
-      | Procname.Java pname_java ->
-          Printf.sprintf "%s.%s"
-            (Procname.java_get_class_name pname_java)
-            (Procname.java_get_method pname_java)
+      | Typ.Procname.Java pname_java ->
+          MF.monospaced_to_string
+            (Printf.sprintf "%s.%s"
+               (Typ.Procname.java_get_class_name pname_java)
+               (Typ.Procname.java_get_method pname_java))
       | _ ->
           "" in
     "View " ^ view_str ^ " may leak during method " ^ pname_str ^ ":\n" in
-  { no_desc with descriptions = [preamble; leak_root; path_str] }
+  { no_desc with descriptions = [preamble ^ MF.code_to_string (leak_root ^ path_str)] }
 
 let desc_unsafe_guarded_by_access pname accessed_fld guarded_by_str loc =
   let line_info = at_line (Tags.create ()) loc in
