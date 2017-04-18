@@ -275,6 +275,9 @@ val desc_fragment_retains_view :
 val desc_activity_retains_static_view :
   Typ.t -> Fieldname.t -> Typ.t -> Typ.Procname.t -> error_desc
 
+val desc_activity_contains_anonymous_class :
+  Typ.t -> Fieldname.t -> Typ.t -> Typ.Procname.t -> error_desc
+
 (* Create human-readable error description for assertion failures *)
 val desc_custom_error : Location.t -> error_desc
 
