@@ -93,6 +93,16 @@ let is_this =
   | Lvar pvar => Pvar.is_this pvar
   | _ => false;
 
+let is_global =
+  fun
+  | Lvar pvar => Pvar.is_global pvar
+  | _ => false;
+
+let is_static_local =
+  fun
+  | Lvar pvar => Pvar.is_static_local pvar
+  | _ => false;
+
 let is_zero =
   fun
   | Const (Cint n) => IntLit.iszero n

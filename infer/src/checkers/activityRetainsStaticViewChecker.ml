@@ -71,7 +71,7 @@ let callback_activity_retains_static_view_java
             List.filter ~f:(is_declared_view_typ class_typename) statics in
 
           (* get all the nullified fields *)
-          let fields_nullified = PatternMatch.get_fields_nullified proc_desc in
+          let fields_nullified = PatternMatch.get_statics_nullified proc_desc in
 
           (* report if a field is declared by C, but not nulled out in C.onDestroyView *)
           begin
@@ -81,6 +81,10 @@ let callback_activity_retains_static_view_java
           let myint1 = (List.length declared_view_fields) in
           let myint2 = (List.length statics) in
           Printf.printf "    c %s # of declared view statics is %d out of %d of statics\n" mystring myint1 myint2;
+
+          let myList = Fieldname.Set.elements fields_nullified in
+          let myint3 = (List.length myList) in
+          Printf.printf "    c2 %d # nulled\n" myint3;
 
           (* iterate over all declared views *)
           List.iter

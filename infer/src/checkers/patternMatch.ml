@@ -371,6 +371,21 @@ let get_fields_nullified procdesc =
       collect_nullified_flds (Fieldname.Set.empty, Ident.IdentSet.empty) procdesc in
   nullified_flds
 
+(** return the set of instance fields that are assigned to a null literal in [procdesc] *)
+let get_statics_nullified procdesc =
+  (* walk through the instructions and look for instance fields that are assigned to null *)
+  let collect_nullified_flds (nullified_flds, static_ids) _ = function
+    | Sil.Store (Exp.Lfield (_, fld, _), _, rhs, _)
+      when Exp.is_null_literal rhs ->
+        (Fieldname.Set.add fld nullified_flds, static_ids)
+    | Sil.Load (id, rhs, _, _) when Exp.is_global rhs ->
+        (nullified_flds, Ident.IdentSet.add id static_ids)
+    | _ -> (nullified_flds, static_ids) in
+  let (nullified_flds, _) =
+    Procdesc.fold_instrs
+      collect_nullified_flds (Fieldname.Set.empty, Ident.IdentSet.empty) procdesc in
+  nullified_flds
+
 (** Checks if the exception is an unchecked exception *)
 let is_runtime_exception tenv typename =
   is_subtype_of_str tenv typename "java.lang.RuntimeException"

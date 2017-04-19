@@ -48,6 +48,7 @@ public class Option2Activity extends Activity {
 
    @Override
    public void onDestroy(){
-
+	//view = null;
+	nonStaticView = null;
    }
 }
