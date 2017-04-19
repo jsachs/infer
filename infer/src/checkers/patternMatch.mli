@@ -110,6 +110,9 @@ val type_is_object : Typ.t -> bool
 (** return the set of instance fields that are assigned to a null literal in [procdesc] *)
 val get_fields_nullified : Procdesc.t -> Fieldname.Set.t
 
+(** return the set of static fields that are assigned to a null literal in [procdesc] *)
+val get_statics_nullified : Procdesc.t -> Fieldname.Set.t
+
 (** [is_exception tenv class_name] checks if class_name is of type java.lang.Exception *)
 val is_exception : Tenv.t -> Typ.Name.t -> bool
 
