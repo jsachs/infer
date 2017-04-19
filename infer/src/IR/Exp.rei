@@ -78,6 +78,10 @@ let is_null_literal: t => bool;
 /** return true if [exp] is the special this/self expression */
 let is_this: t => bool;
 
+let is_global: t => bool;
+
+let is_static_local: t => bool;
+
 let is_zero: t => bool;
 
 

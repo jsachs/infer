@@ -46,8 +46,8 @@ val explain_context_leak : Typ.Procname.t -> Typ.t -> Fieldname.t ->
   (Fieldname.t option * Typ.t) list -> Localise.error_desc
 
 (** Produce a description of a persistent reference to an Android View *)
-val explain_view_leak : Procname.t -> Typ.t -> Ident.fieldname ->
-  (Ident.fieldname option * Typ.t) list -> Localise.error_desc
+val explain_view_leak : Typ.Procname.t -> Typ.t -> Fieldname.t ->
+  (Fieldname.t option * Typ.t) list -> Localise.error_desc
 
 (** Produce a description of a persistent reference to an Android View *)
 val explain_view_leak : Procname.t -> Typ.t -> Ident.fieldname ->
