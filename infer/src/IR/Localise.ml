@@ -583,11 +583,9 @@ let desc_activity_retains_static_view activity_typ fieldname fld_typ pname : err
     "In general, it is a good idea to initialize Views in onCreate, then nullify them in onDestroy." in
   { no_desc with descriptions = [problem; consequences; advice] }
 
-let desc_activity_contains_anonymous_class activity_typ fieldname fld_typ pname : error_desc =
+let desc_activity_contains_anonymous_class activity_typ pname : error_desc =
   let problem =
-    Printf.sprintf "Activity %s contains anonymous inner class %s in %s."
-      (format_typ activity_typ)
-      (format_field fieldname)
+    Printf.sprintf "Activity contains anonymous inner class in %s."
       (format_method pname) in
   let consequences =
     "If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work." in
