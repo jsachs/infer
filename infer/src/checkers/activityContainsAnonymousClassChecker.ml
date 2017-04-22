@@ -27,7 +27,17 @@ let callback_activity_contains_anonymous_class_java
   (* Define class name variable*)
   let class_typename =
     Typ.Name.Java.from_string (Typ.Procname.java_get_class_name pname_java) in
-  if Typ.Procname.java_is_anonymous_inner_class pname_t then
+
+  let contains s1 s2 =
+    let re = Str.regexp_string s2
+    in
+        try ignore (Str.search_forward re s1 0); true
+        with Not_found -> false
+  in
+  let does_background_work = contains (Typ.Procname.java_get_method pname_java) "doInBackground" in
+  let runs_in_background = contains (Typ.Procname.java_get_method pname_java) "run" in
+
+  if Typ.Procname.java_is_anonymous_inner_class pname_t && (does_background_work || runs_in_background) then
     report_error (Tstruct class_typename) (Typ.Procname.Java pname_java) proc_desc
 
 (* main *)
@@ -41,4 +51,4 @@ let callback_activity_contains_anonymous_class ({ Callbacks.summary } as args) :
         ()
   end;
   summary
-  
+
