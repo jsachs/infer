@@ -1,0 +1,350 @@
+Found 43 issues
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/AboutFragment.java:122: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.AboutFragment does not nullify View field view (type android.view.View) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  120.       @Override
+  121.       public void onDestroyView() {
+  122. >         super.onDestroyView();
+  123.           unbinder.unbind();
+  124.       }
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/AboutFragment.java:122: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.AboutFragment does not nullify View field versionInfo (type android.widget.TextView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  120.       @Override
+  121.       public void onDestroyView() {
+  122. >         super.onDestroyView();
+  123.           unbinder.unbind();
+  124.       }
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListItem2Description (type android.widget.TextView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListItem3Description (type android.widget.TextView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscriptionOptions (type android.view.View) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListitem1Box (type android.view.View) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscription6MonthView (type com.habitrpg.android.habitica.ui.views.subscriptions.SubscriptionOptionView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListItem4Description (type android.widget.TextView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscription3MonthView (type com.habitrpg.android.habitica.ui.views.subscriptions.SubscriptionOptionView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListItem1Description (type android.widget.TextView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListitem2Button (type android.widget.ImageView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListitem4Box (type android.view.View) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListitem2Box (type android.view.View) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListitem1Button (type android.widget.ImageView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscriptionDetailsView (type com.habitrpg.android.habitica.ui.views.subscriptions.SubscriptionDetailsView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscription12MonthView (type com.habitrpg.android.habitica.ui.views.subscriptions.SubscriptionOptionView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field loadingIndicator (type android.widget.ProgressBar) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscriptionButton (type android.widget.Button) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscription1MonthView (type com.habitrpg.android.habitica.ui.views.subscriptions.SubscriptionOptionView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeBenefitsTitle (type android.widget.TextView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListitem3Box (type android.view.View) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListitem4Button (type android.widget.ImageView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/SubscriptionFragment.java:123: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.SubscriptionFragment does not nullify View field subscribeListitem3Button (type android.widget.ImageView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  121.       @Override
+  122.       public void onDestroyView() {
+  123. >         super.onDestroyView();
+  124.       }
+  125.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/tasks/TasksFragment.java:441: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.tasks.TasksFragment does not nullify View field floatingMenu (type com.github.clans.fab.FloatingActionMenu) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  439.       @Override
+  440.       public void onDestroyView() {
+  441. >         super.onDestroyView();
+  442.       }
+  443.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/tasks/TasksFragment.java:441: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.tasks.TasksFragment does not nullify View field filterCountTextView (type android.widget.TextView) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  439.       @Override
+  440.       public void onDestroyView() {
+  441. >         super.onDestroyView();
+  442.       }
+  443.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/fragments/tasks/TasksFragment.java:441: error: CHECKERS_FRAGMENT_RETAINS_VIEW
+  Fragment com.habitrpg.android.habitica.ui.fragments.tasks.TasksFragment does not nullify View field viewPager (type android.support.v4.view.ViewPager) in onDestroyView. If this Fragment is placed on the back stack, a reference to this (probably dead) View will be retained. In general, it is a good idea to initialize View's in onCreateView, then nullify them in onDestroyView.
+  439.       @Override
+  440.       public void onDestroyView() {
+  441. >         super.onDestroyView();
+  442.       }
+  443.   
+
+Habitica/src/main/java/com/habitrpg/android/habitica/ui/views/Typewriter.java:42: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  40.       private Runnable characterAdder = new Runnable() {
+  41.           @Override
+  42. >         public void run() {
+  43.               stringBuilder.setSpan(visibleSpan, 0, index++, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+  44.               setText(stringBuilder);
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/AdvertisingIdAdapter.java:26: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  24.           new Thread(new Runnable() {
+  25.               @Override
+  26. >             public void run() {
+  27.                   try {
+  28.                       deviceId.setId(DeviceId.Type.ADVERTISING_ID, getAdvertisingId(context));
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/ConnectionQueue.java:179: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  177.           worker.schedule(new Runnable() {
+  178.               @Override
+  179. >             public void run() {
+  180.                   store_.addConnection(data);
+  181.                   tick();
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/Seeds.java:106: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  104.           timerService_.scheduleWithFixedDelay(new Runnable() {
+  105.               @Override
+  106. >             public void run() {
+  107.                   onTimer();
+  108.               }
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:415: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  413.   			sendNotification(new Runnable() {
+  414.   				@Override
+  415. > 				public void run() {
+  416.   					// TODO: Trigger this only when the interstitial is being dismissed
+  417.   
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:152: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  150.   		return new Thread(new Runnable() {
+  151.   			@Override
+  152. > 			public void run() {
+  153.   				while (ResourceManager.isDownloading()) {
+  154.   					try {
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:320: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  318.   			sendNotification(new Runnable() {
+  319.   				@Override
+  320. > 				public void run() {
+  321.   					mListener.noInAppMessageFound(messageId);
+  322.   				}
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:341: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  339.   				sendNotification(new Runnable() {
+  340.   					@Override
+  341. > 					public void run() {
+  342.   						mListener.inAppMessageClickedWithDynamicPrice(ad.getMessageId(), price);
+  343.   					}
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:357: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  355.   				sendNotification(new Runnable() {
+  356.   					@Override
+  357. > 					public void run() {
+  358.   						mListener.inAppMessageClicked(ad.getMessageId());
+  359.   					}
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:367: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  365.   				sendNotification(new Runnable() {
+  366.   					@Override
+  367. > 					public void run() {
+  368.   						mListener.inAppMessageDismissed(ad.getMessageId());
+  369.   					}
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:375: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  373.   				sendNotification(new Runnable() {
+  374.   					@Override
+  375. > 					public void run() {
+  376.   						mListener.inAppMessageClicked(ad.getMessageId());
+  377.   					}
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:387: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  385.   			sendNotification(new Runnable() {
+  386.   				@Override
+  387. > 				public void run() {
+  388.   					mListener.inAppMessageLoadSucceeded(ad.getMessageId());
+  389.   				}
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageManager.java:399: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  397.   			sendNotification(new Runnable() {
+  398.   				@Override
+  399. > 				public void run() {
+  400.   					mListener.inAppMessageShown(ad.getMessageId(), ok);
+  401.   				}
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageView.java:167: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in doInBackground. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  165.   
+  166.   	private void makeTrackingRequest(final String clickUrl) {
+  167. > 		AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+  168.   			@Override
+  169.   			protected Void doInBackground(Void... params) {
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/InAppMessageView.java:169: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in doInBackground. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  167.   		AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+  168.   			@Override
+  169. > 			protected Void doInBackground(Void... params) {
+  170.   				if (clickUrl.startsWith("market")) { // just to stay safe
+  171.   					return null;
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/Util.java:235: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in doInBackground. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  233.   		if (androidAdId == null && GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) == ConnectionResult.SUCCESS) {
+  234.   			Log.d("GooglePlayServices connected");
+  235. > 			AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+  236.   
+  237.   				@Override
+
+seeds-sdk/src/main/java/com/playseeds/android/sdk/inappmessaging/Util.java:238: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in doInBackground. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  236.   
+  237.   				@Override
+  238. > 				protected Void doInBackground(Void... params) {
+  239.   					Info adInfo = null;
+  240.   					try {
+
+Summary of the reports
+
+              CHECKERS_FRAGMENT_RETAINS_VIEW: 26
+  CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS: 17
