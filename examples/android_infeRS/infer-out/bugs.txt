@@ -1,0 +1,46 @@
+Found 5 issues
+
+app/src/main/java/edu/columbia/cs/infers/Option2Activity.java:50: error: CHECKERS_ACTIVITY_RETAINS_STATIC_VIEW
+  Activity edu.columbia.cs.infers.Option2Activity does not nullify static View field view (type android.view.View) in onDestroy. If this Activity is destroyed, a reference to it will leak through the static View that retains. In general, it is a good idea to initialize Views in onCreate, then nullify them in onDestroy.
+  48.   
+  49.      @Override
+  50. >    public void onDestroy(){
+  51.   	//view = null;
+  52.   	nonStaticView = null;
+
+app/src/main/java/edu/columbia/cs/infers/Option4Activity.java:41: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in doInBackground. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  39.   
+  40.       private void leakMemory(){
+  41. >         new AsyncTask<Void, Void, Void>() {
+  42.               @Override protected Void doInBackground(Void... params) {
+  43.                   while(true);
+
+app/src/main/java/edu/columbia/cs/infers/Option4Activity.java:42: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in doInBackground. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  40.       private void leakMemory(){
+  41.           new AsyncTask<Void, Void, Void>() {
+  42. >             @Override protected Void doInBackground(Void... params) {
+  43.                   while(true);
+  44.               }
+
+app/src/main/java/edu/columbia/cs/infers/Option5Activity.java:42: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  40.           new Thread() {
+  41.               @Override
+  42. >             public void run(){
+  43.                   while (true){
+  44.                       SystemClock.sleep(1000);
+
+app/src/main/java/edu/columbia/cs/infers/SplashActivity.java:50: error: CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS
+  Activity contains anonymous inner class in run. If this Activity is destroyed, a reference to it will persist if the anonymous class performs background work. Use only static nested classes.
+  48.                       new Handler().postDelayed(new Runnable(){
+  49.                           @Override
+  50. >                         public void run() {
+  51.                               // Create an Intent that will start the Menu Activity
+  52.                               Intent mainIntent = new Intent(SplashActivity.this,MenuActivity.class);
+
+Summary of the reports
+
+  CHECKERS_ACTIVITY_CONTAINS_ANONYMOUS_CLASS: 4
+       CHECKERS_ACTIVITY_RETAINS_STATIC_VIEW: 1
